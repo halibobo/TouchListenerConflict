@@ -33,7 +33,8 @@ public class ViewWithSign extends LinearLayout {
     private Paint textPaint = new Paint();
     private int paintMiddle;
     private int startDis;
-    private int textSize = 8;
+    private int textSize = 12;
+    private int width;
 
     public String getCont() {
         return cont;
@@ -64,10 +65,6 @@ public class ViewWithSign extends LinearLayout {
         if (TextUtils.isEmpty(getCont())) {
             return;
         }
-
-        int width = getWidth();
-        paintMiddle = width / 5;
-        startDis = width / 6;
 
         textPaint.setAntiAlias(true);  //抗锯齿
         Path path3 = new Path();
@@ -109,5 +106,8 @@ public class ViewWithSign extends LinearLayout {
         //高度和宽度一样
         heightMeasureSpec = widthMeasureSpec = MeasureSpec.makeMeasureSpec(childWidthSize, MeasureSpec.EXACTLY);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        width = getWidth();
+        paintMiddle = width / 5;
+        startDis = width / 4;
     }
 }

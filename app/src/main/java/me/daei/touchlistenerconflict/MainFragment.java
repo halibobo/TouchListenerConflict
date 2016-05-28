@@ -3,11 +3,9 @@ package me.daei.touchlistenerconflict;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,8 +65,8 @@ public class MainFragment extends LazyLoadFragment {
     ViewWithSign viewWithSign ;
     private void initView() {
         mDatas.clear();
-        for(int i =0 ;i< DridDatas.gridDatas.length;i++) {
-            GridCutItem gridCutItem = new GridCutItem(DridDatas.gridDatas[i][0], DridDatas.gridDatas[i][1]);
+        for(int i = 0; i< GridDatas.gridDatas.length; i++) {
+            GridCutItem gridCutItem = new GridCutItem(GridDatas.gridDatas[i][0], GridDatas.gridDatas[i][1]);
             mDatas.add(gridCutItem);
         }
 

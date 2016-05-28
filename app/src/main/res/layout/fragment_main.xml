@@ -17,8 +17,8 @@
             <LinearLayout
                 android:id="@+id/top_pane"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#eeeeee"
+                android:layout_height="150dp"
+                android:background="#56abe4"
                 android:gravity="center"
                 android:layout_marginBottom="1dp"
                 android:orientation="horizontal">
@@ -43,8 +43,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="#eeeeee"
+                android:layout_height="150dp"
+                android:background="#00bb9c"
                 android:gravity="center"
                 android:layout_marginTop="1dp"
                 android:orientation="horizontal">
