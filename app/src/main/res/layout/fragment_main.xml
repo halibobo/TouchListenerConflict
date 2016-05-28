@@ -20,7 +20,6 @@
                 android:layout_height="150dp"
                 android:background="#56abe4"
                 android:gravity="center"
-                android:layout_marginBottom="1dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
@@ -34,8 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:horizontalSpacing="2dp"
-                android:verticalSpacing="2dp"
+                android:horizontalSpacing="0dp"
+                android:verticalSpacing="0dp"
                 android:numColumns="4"
                 android:scrollbars="none"
                 android:listSelector="#ffffff"
@@ -46,7 +45,6 @@
                 android:layout_height="150dp"
                 android:background="#00bb9c"
                 android:gravity="center"
-                android:layout_marginTop="1dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
@@ -54,7 +52,6 @@
                     android:layout_gravity="center"
                     android:text="我是banner2"/>
             </LinearLayout>
-
         </LinearLayout>
     </me.daei.touchlistenerconflict.widget.ControlScrollView>
 

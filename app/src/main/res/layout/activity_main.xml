@@ -8,10 +8,15 @@
     <me.daei.touchlistenerconflict.widget.NoScrollViewPager
         android:id="@+id/id_viewpager"
         android:layout_width="match_parent"
-        android:layout_above="@+id/tab_bar"
+        android:layout_above="@+id/line"
         android:layout_height="match_parent">
     </me.daei.touchlistenerconflict.widget.NoScrollViewPager>
-
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#eeeeee"
+        android:layout_above="@+id/tab_bar"/>
         <LinearLayout
             android:id="@+id/tab_bar"
             android:layout_width="match_parent"
