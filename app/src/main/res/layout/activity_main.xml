@@ -3,14 +3,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.daei.touchlistenerconflict.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <me.daei.touchlistenerconflict.widget.NoScrollViewPager
+        android:id="@+id/id_viewpager"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/tab_bar"
+        android:layout_height="match_parent">
+    </me.daei.touchlistenerconflict.widget.NoScrollViewPager>
+
+        <LinearLayout
+            android:id="@+id/tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_bar_height"
+            android:layout_alignParentBottom="true"
+            android:background="#ffffff"
+            android:visibility="visible"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/id_indicator_one"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/shape_background_color"
+                android:padding="5dp">
+                <ImageView
+                    android:id="@+id/icon1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:src="@drawable/home"
+                    />
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:textSize="10sp"
+                    android:text="功能1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_indicator_two"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/shape_background_color"
+                android:padding="5dp">
+                <ImageView
+                    android:id="@+id/icon2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:src="@drawable/home"
+                    />
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:textSize="10sp"
+                    android:text="功能2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_indicator_three"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/shape_background_color"
+                android:padding="5dp">
+                <ImageView
+                    android:id="@+id/icon3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:src="@drawable/home"
+                    />
+                <TextView
+                    android:id="@+id/text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="10sp"
+                    android:layout_marginTop="3dp"
+                    android:text="功能3"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/id_indicator_four"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/shape_background_color"
+                android:padding="5dp">
+                <ImageView
+                    android:id="@+id/icon4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:src="@drawable/home"
+                    />
+                <TextView
+                    android:id="@+id/text4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="3dp"
+                    android:textSize="10sp"
+                    android:text="功能4"/>
+            </LinearLayout>
+
+        </LinearLayout>
 </RelativeLayout>

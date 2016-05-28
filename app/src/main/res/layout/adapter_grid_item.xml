@@ -1,0 +1,29 @@
+<me.daei.touchlistenerconflict.widget.ViewWithSign xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/icon"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_background_color"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="me.daei.touchlistenerconflict.AboutFragment">
+
+    <ImageView
+        android:id="@+id/iv_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/item"
+        android:contentDescription="@string/app_name" />
+
+    <TextView
+        android:id="@+id/tv_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:maxLines="1"
+        android:text="目录"
+        android:textColor="#444"
+        android:textSize="14sp" />
+
+</me.daei.touchlistenerconflict.widget.ViewWithSign>

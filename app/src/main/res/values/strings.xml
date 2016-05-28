@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">"TouchListenerConflict "</string>
+    <string name="app_name">"我不是支付宝"</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">我是fragment</string>
 </resources>

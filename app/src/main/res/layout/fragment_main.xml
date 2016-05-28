@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.daei.touchlistenerconflict.MainFragment">
+
+    <me.daei.touchlistenerconflict.widget.ControlScrollView
+        android:id="@+id/scroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/top_pane"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#eeeeee"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="我是banner"/>
+            </LinearLayout>
+
+            <me.daei.touchlistenerconflict.widget.DragGridView
+                android:id="@+id/grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:horizontalSpacing="1px"
+                android:verticalSpacing="1px"
+                android:numColumns="4"
+                android:scrollbars="none"
+                android:listSelector="#ffffff"
+                android:stretchMode="columnWidth"/>
+
+        </LinearLayout>
+    </me.daei.touchlistenerconflict.widget.ControlScrollView>
+
+</RelativeLayout>
