@@ -34,11 +34,6 @@ public class MainFragment extends LazyLoadFragment {
 
     private ArrayList<GridCutItem> mDatas = new ArrayList<>();
     private CommonAdapter mAdapter;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     private boolean isPrepared;
 
 

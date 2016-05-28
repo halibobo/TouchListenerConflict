@@ -20,13 +20,13 @@
                 android:layout_height="100dp"
                 android:background="#eeeeee"
                 android:gravity="center"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="1dp"
                 android:orientation="horizontal">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="我是banner"/>
+                    android:text="我是banner1"/>
             </LinearLayout>
 
             <me.daei.touchlistenerconflict.widget.DragGridView
@@ -34,12 +34,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:horizontalSpacing="1px"
-                android:verticalSpacing="1px"
+                android:horizontalSpacing="2dp"
+                android:verticalSpacing="2dp"
                 android:numColumns="4"
                 android:scrollbars="none"
                 android:listSelector="#ffffff"
                 android:stretchMode="columnWidth"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#eeeeee"
+                android:gravity="center"
+                android:layout_marginTop="1dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="我是banner2"/>
+            </LinearLayout>
 
         </LinearLayout>
     </me.daei.touchlistenerconflict.widget.ControlScrollView>
