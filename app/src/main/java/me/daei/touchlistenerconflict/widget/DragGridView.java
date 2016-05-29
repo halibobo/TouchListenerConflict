@@ -192,7 +192,7 @@ public class DragGridView  extends GridView{
 
 
                 if (mDragPosition == AdapterView.INVALID_POSITION || mDragPosition == getCount() - 1) {
-                    return super.dispatchTouchEvent(ev);
+                    return super.dispatchTouchEvent(ev); //最后一项更多不参与替换
                 }
 
                 //使用Handler延迟dragResponseMS执行mLongClickRunnable
@@ -235,9 +235,6 @@ public class DragGridView  extends GridView{
 
                 break;
             case MotionEvent.ACTION_UP:
-                mHandler.removeCallbacks(mLongClickRunnable);
-                mHandler.removeCallbacks(mScrollRunnable);
-                break;
             case MotionEvent.ACTION_CANCEL:
                 mHandler.removeCallbacks(mLongClickRunnable);
                 mHandler.removeCallbacks(mScrollRunnable);
@@ -475,7 +472,7 @@ public class DragGridView  extends GridView{
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int expandSpec = View.MeasureSpec.makeMeasureSpec(
-                Integer.MAX_VALUE >> 2, View.MeasureSpec.AT_MOST);
+                Integer.MAX_VALUE >> 2, View.MeasureSpec.AT_MOST);//1.精确模式（MeasureSpec.EXACTLY） 2.最大模式（MeasureSpec.AT_MOST） 3.未指定模式（MeasureSpec.UNSPECIFIED）
         super.onMeasure(widthMeasureSpec, expandSpec);
     }
 }
