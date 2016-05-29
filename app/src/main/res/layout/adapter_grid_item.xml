@@ -3,7 +3,7 @@
     android:id="@+id/icon"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_background_color"
+    android:background="@drawable/shape_background_color"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="me.daei.touchlistenerconflict.AboutFragment">
