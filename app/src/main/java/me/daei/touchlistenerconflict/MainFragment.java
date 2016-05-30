@@ -101,7 +101,31 @@ public class MainFragment extends LazyLoadFragment {
             }
         });
         mAdapter.notifyDataSetChanged();
-        scroller.setGrid(this.grid);
+        scroller.setScrollState(new ControlScrollView.ScrollState() {
+            @Override
+            public void stopTouch() {
+                grid.stopDrag();
+            }
+        });
+
+        grid.setOnDragStartListener(new DragGridView.OnDragStartListener() {
+            @Override
+            public void onDragStart() {
+                scroller.requestDisallowInterceptTouchEvent(true);
+                scroller.setInControl(false);
+                ((MainActivity) getContext()).setViewpagerNoSCroll(true);
+            }
+        });
+        grid.setOnDragEndListener(new DragGridView.OnDragEndListener() {
+            @Override
+            public void onDragEnd() {
+                scroller.requestDisallowInterceptTouchEvent(false);
+                scroller.setInControl(true);
+                ((MainActivity) getContext()).setViewpagerNoSCroll(false);
+                grid.postInvalidate();
+            }
+        });
+
     }
 
     @Override

@@ -13,25 +13,22 @@ import me.daei.touchlistenerconflict.ScreenUtils;
 /**
  * Created by su on 2016/5/28.
  */
-public class ControlScrollView  extends ScrollView {
+public class ControlScrollView extends ScrollView {
 
-    DragGridView grid;
     private boolean isInControl = true;
-    private  int moveSpeed = 15;
+    private int moveSpeed = 5;
     private final int msgWhat = 1;
-    private final int time = 40;
+    private final int time = 20;
+    private ScrollState scrollState;
 
     public ControlScrollView(Context context) {
         super(context);
-    }
-
-    public void setGrid(DragGridView grid) {
-        this.grid = grid;
         init();
     }
 
     public ControlScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     @Override
@@ -55,16 +52,18 @@ public class ControlScrollView  extends ScrollView {
                             myHandler.sendMessageDelayed(msg, time);
                         }
                         return super.dispatchTouchEvent(ev);
-                    }else{
+                    } else {
                         myHandler.removeMessages(msgWhat);
                     }
-                }else{
+                } else {
                     myHandler.removeMessages(msgWhat);
                 }
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                grid.stopDrag();
+                if (scrollState != null) {
+                    scrollState.stopTouch();
+                }
                 myHandler.removeMessages(msgWhat);
                 requestDisallowInterceptTouchEvent(false);
                 break;
@@ -73,38 +72,32 @@ public class ControlScrollView  extends ScrollView {
     }
 
 
-
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         myHandler.removeMessages(msgWhat);
-        grid.stopDrag();
-
     }
 
 
     private void init() {
         moveSpeed = ScreenUtils.dip2px(getContext(), moveSpeed);
-        grid.setOnDragStartListener(new DragGridView.OnDragStartListener() {
-            @Override
-            public void onDragStart() {
-                requestDisallowInterceptTouchEvent(true);
-                isInControl = false;
-                ((MainActivity) getContext()).setViewpagerNoSCroll(true);
-            }
-        });
-        grid.setOnDragEndListener(new DragGridView.OnDragEndListener() {
-            @Override
-            public void onDragEnd() {
-                requestDisallowInterceptTouchEvent(false);
-                isInControl = true;
-                ((MainActivity) getContext()).setViewpagerNoSCroll(false);
-                grid.postInvalidate();
-            }
-        });
     }
 
+    public boolean isInControl() {
+        return isInControl;
+    }
 
+    public ScrollState getScrollState() {
+        return scrollState;
+    }
+
+    public void setScrollState(ScrollState scrollState) {
+        this.scrollState = scrollState;
+    }
+
+    public void setInControl(boolean inControl) {
+        isInControl = inControl;
+    }
 
     private Handler myHandler = new Handler() {
         @Override
@@ -117,5 +110,9 @@ public class ControlScrollView  extends ScrollView {
             myHandler.sendMessageDelayed(msg1, time);
         }
     };
+
+    public interface ScrollState {
+        void stopTouch();
+    }
 
 }
