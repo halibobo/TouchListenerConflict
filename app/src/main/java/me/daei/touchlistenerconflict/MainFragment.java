@@ -106,6 +106,11 @@ public class MainFragment extends LazyLoadFragment {
             public void stopTouch() {
                 grid.stopDrag();
             }
+
+            @Override
+            public void isCanDrag(boolean isCandrag) {
+                grid.setCanDrag(isCandrag);
+            }
         });
 
         grid.setOnDragStartListener(new DragGridView.OnDragStartListener() {

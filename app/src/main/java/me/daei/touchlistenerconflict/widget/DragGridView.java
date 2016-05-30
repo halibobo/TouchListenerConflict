@@ -107,6 +107,8 @@ public class DragGridView  extends GridView{
      */
     private static final int speed = 20;
 
+    private boolean isCanDrag = true;
+
     /**
      * item发生变化回调的接口
      */
@@ -243,8 +245,13 @@ public class DragGridView  extends GridView{
         return super.dispatchTouchEvent(ev);
     }
 
+    public boolean isCanDrag() {
+        return isCanDrag;
+    }
 
-
+    public void setCanDrag(boolean canDrag) {
+        isCanDrag = canDrag;
+    }
 
     /**
      * 是否点击在GridView的item上面
@@ -335,7 +342,9 @@ public class DragGridView  extends GridView{
 //        mWindowLayoutParams.y = moveY - mPoint2ItemTop + mOffset2Top - mStatusHeight;
         mWindowLayoutParams.y = moveRawY - mDragBitmap.getHeight() / 2;
         mWindowManager.updateViewLayout(mDragImageView, mWindowLayoutParams); //更新镜像的位置
-        onSwapItem(moveX, moveY);
+        if(isCanDrag){
+            onSwapItem(moveX, moveY);
+        }
 
         //GridView自动滚动
         mHandler.post(mScrollRunnable);

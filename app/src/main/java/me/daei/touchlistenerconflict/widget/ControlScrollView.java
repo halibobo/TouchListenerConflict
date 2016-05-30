@@ -18,7 +18,7 @@ public class ControlScrollView extends ScrollView {
     private boolean isInControl = true;
     private int moveSpeed = 5;
     private final int msgWhat = 1;
-    private final int time = 20;
+    private final int time = 10;
     private ScrollState scrollState;
 
     public ControlScrollView(Context context) {
@@ -43,6 +43,9 @@ public class ControlScrollView extends ScrollView {
                             msg.what = msgWhat;
                             myHandler.sendMessageDelayed(msg, time);
                         }
+                        if (scrollState != null) {
+                            scrollState.isCanDrag(false);
+                        }
                         return super.dispatchTouchEvent(ev);
                     } else if (ev.getY() > getHeight()) {
                         if (!myHandler.hasMessages(msgWhat)) {
@@ -51,8 +54,14 @@ public class ControlScrollView extends ScrollView {
                             msg.what = msgWhat;
                             myHandler.sendMessageDelayed(msg, time);
                         }
+                        if (scrollState != null) {
+                            scrollState.isCanDrag(false);
+                        }
                         return super.dispatchTouchEvent(ev);
                     } else {
+                        if (scrollState != null) {
+                            scrollState.isCanDrag(true);
+                        }
                         myHandler.removeMessages(msgWhat);
                     }
                 } else {
@@ -113,6 +122,7 @@ public class ControlScrollView extends ScrollView {
 
     public interface ScrollState {
         void stopTouch();
+        void isCanDrag(boolean isCandrag);
     }
 
 }
