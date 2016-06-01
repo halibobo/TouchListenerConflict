@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     tools:context="me.daei.touchlistenerconflict.MainActivity">
 
-    <me.daei.touchlistenerconflict.widget.NoScrollViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/id_viewpager"
         android:layout_width="match_parent"
         android:layout_above="@+id/line"
         android:layout_height="match_parent">
-    </me.daei.touchlistenerconflict.widget.NoScrollViewPager>
+    </android.support.v4.view.ViewPager>
     <View
         android:id="@+id/line"
         android:layout_width="match_parent"

@@ -6,11 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +15,11 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import me.daei.touchlistenerconflict.widget.NoScrollViewPager;
 
 public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.id_viewpager)
-    NoScrollViewPager idViewpager;
+    ViewPager idViewpager;
 
     @OnClick({R.id.id_indicator_one,R.id.id_indicator_two,R.id.id_indicator_three,R.id.id_indicator_four})
     void viewClick(View view) {
@@ -68,10 +64,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setViewpagerNoSCroll(boolean scroll) {
-        idViewpager.setNoScroll(scroll);
+        if(!scroll){
+            idViewpager.requestDisallowInterceptTouchEvent(true);
+        }
     }
 
-    private void setupViewPager(NoScrollViewPager viewPager) {
+    private void setupViewPager(ViewPager viewPager) {
         mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         for (int i = 0; i < PAGE_SIZE; i++) {
             switch (i) {
@@ -110,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         viewPager.setOffscreenPageLimit(PAGE_SIZE);
-        viewPager.setNoScroll(false);
     }
 
     private void changeTab(int tabType) {
