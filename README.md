@@ -4,3 +4,4 @@
 #### 源码地址 [https://github.com/halibobo/TouchListenerConflict](https://github.com/halibobo/TouchListenerConflict)
 ![图片介绍](https://raw.githubusercontent.com/halibobo/TouchListenerConflict/master/1.gif)
 ##[我的主页](http://www.dahei.me)
+## 欢迎给我一个star
