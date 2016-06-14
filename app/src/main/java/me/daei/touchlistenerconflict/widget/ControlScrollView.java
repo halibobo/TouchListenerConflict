@@ -109,9 +109,10 @@ public class ControlScrollView extends ScrollView {
     }
 
     private Handler myHandler = new Handler() {
+
         @Override
-        public void dispatchMessage(Message msg) {
-            super.dispatchMessage(msg);
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
             smoothScrollBy(0, moveSpeed * (msg.arg1 > 0 ? 1 : -1));
             Message msg1 = new Message();
             msg1.what = msg.what;
