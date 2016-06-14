@@ -18,6 +18,9 @@ import me.daei.touchlistenerconflict.ScreenUtils;
  */
 public class ViewWithSign extends LinearLayout {
 
+    private Path path3;
+    private int dis;
+    private int disY;
 
     public ViewWithSign(Context context) {
         super(context);
@@ -29,7 +32,7 @@ public class ViewWithSign extends LinearLayout {
         addDrawText(getCont());
     }
 
-    private String cont = "";
+    private String cont = ""; //提示内容
     private Paint textPaint = new Paint();
     private int paintMiddle;
     private int startDis;
@@ -61,13 +64,13 @@ public class ViewWithSign extends LinearLayout {
         invalidate();
     }
 
+
     private void drawRect(Canvas canvas) {
         if (TextUtils.isEmpty(getCont())) {
             return;
         }
-
         textPaint.setAntiAlias(true);  //抗锯齿
-        Path path3 = new Path();
+        path3 = new Path();
         path3.moveTo(width - startDis, 0);
         path3.lineTo(width - startDis - paintMiddle, 0);
         path3.lineTo(width, startDis + paintMiddle);
@@ -80,9 +83,9 @@ public class ViewWithSign extends LinearLayout {
         textPaint.setTextSize(textSize* ScreenUtils.getDensity(getContext()));
         textPaint.setColor(Color.WHITE);
         textPaint.setTextAlign(Paint.Align.CENTER);
-        int dis = (paintMiddle/2  + startDis) /2;
+        dis = (paintMiddle/2  + startDis) /2;
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
-        int disY = dis - (fontMetrics.bottom + fontMetrics.top) / 2;
+        disY = dis - (fontMetrics.bottom + fontMetrics.top) / 2;
         canvas.rotate(45, width-dis, dis);
         canvas.drawText(cont, width - dis, disY, textPaint);
         canvas.rotate(-45, dis, dis);

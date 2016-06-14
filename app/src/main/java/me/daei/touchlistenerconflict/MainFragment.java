@@ -108,8 +108,8 @@ public class MainFragment extends LazyLoadFragment {
             }
 
             @Override
-            public void isCanDrag(boolean isCandrag) {
-                grid.setCanDrag(isCandrag);
+            public void isCanDrag(boolean isCanDrag) {
+                grid.setCanDrag(isCanDrag);
             }
         });
 

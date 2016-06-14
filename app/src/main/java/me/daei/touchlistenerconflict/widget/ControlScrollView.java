@@ -74,7 +74,7 @@ public class ControlScrollView extends ScrollView {
                     scrollState.stopTouch();
                 }
                 myHandler.removeMessages(msgWhat);
-                requestDisallowInterceptTouchEvent(false);
+//                requestDisallowInterceptTouchEvent(false);
                 break;
         }
         return super.dispatchTouchEvent(ev);
@@ -122,7 +122,7 @@ public class ControlScrollView extends ScrollView {
 
     public interface ScrollState {
         void stopTouch();
-        void isCanDrag(boolean isCandrag);
+        void isCanDrag(boolean isCanDrag);
     }
 
 }
