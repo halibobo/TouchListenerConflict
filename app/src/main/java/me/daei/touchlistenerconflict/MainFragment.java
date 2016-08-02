@@ -64,6 +64,7 @@ public class MainFragment extends LazyLoadFragment {
 
     ViewWithSign viewWithSign ;
     private void initView() {
+        scroller.smoothScrollTo(0, 0);
         mDatas.clear();
         for(int i = 0; i< GridDatas.gridDatas.length; i++) {
             GridCutItem gridCutItem = new GridCutItem(GridDatas.gridDatas[i][0], GridDatas.gridDatas[i][1]);

@@ -74,7 +74,7 @@ public class ControlScrollView extends ScrollView {
                     scrollState.stopTouch();
                 }
                 myHandler.removeMessages(msgWhat);
-//                requestDisallowInterceptTouchEvent(false);
+                requestDisallowInterceptTouchEvent(false);
                 break;
         }
         return super.dispatchTouchEvent(ev);
